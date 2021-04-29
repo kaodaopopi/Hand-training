@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 
-#讀取鏡頭參數
+#Load webcam
 cap = cv2.VideoCapture(0)
 
 mpHands = mp.solutions.hands
@@ -25,13 +25,13 @@ while(True):
                 cx,cy = int(lm.x*w),int(lm.y*h)
                 print(id,cx,cy)
                 
-                #定義圓圈顏色/大小
+                #Define circle color/size
                 if id ==0:
                     cv2.circle(img,(cx,cy),15,(255,0,255),cv2.FILLED)
                 
             mpDraw.draw_landmarks(img,handLms,mpHands.HAND_CONNECTIONS)
 
-    #顯示fps
+    #Show fps
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
@@ -39,13 +39,13 @@ while(True):
     cv2.putText(img,str(int(fps)),(10,70),
                 cv2.FONT_HERSHEY_PLAIN,3,(255,255,0),3)
    
-    # 顯示圖片
+    #Show Picture 
     cv2.imshow('Image', img)
     
-    # 按下 q 鍵離開迴圈
+    # Press q to end the program execution
     if cv2.waitKey(1) == ord('q'):
         break
 
-# 釋放該攝影機裝置
+#Release the VideoCapture object 
 cap.release()
 cv2.destroyAllWindows()
