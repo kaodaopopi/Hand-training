@@ -1,5 +1,5 @@
 ## **結果圖**
-![image](picture or gif url)
+![image](https://github.com/kaodaopopi/Hand-training/blob/main/Results.JPG)
 
 ## **使用軟體的版本**
 
